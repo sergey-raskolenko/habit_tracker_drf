@@ -20,7 +20,7 @@ class Habit(models.Model):
 	time = models.TimeField(auto_now_add=True, verbose_name='Время')
 	action = models.CharField(max_length=100, verbose_name='Действие привычки')
 	is_enjoyable = models.BooleanField(default=False, verbose_name='Приятная привычка')
-	linked_habits = models.ForeignKey('self', on_delete=models.SET_NULL, verbose_name='Связанная привычка', **NULLABLE)
+	linked_habit = models.ForeignKey('self', on_delete=models.SET_NULL, verbose_name='Связанная привычка', **NULLABLE)
 	periodicity = models.PositiveSmallIntegerField(choices=PERIODICITY_CHOICES, verbose_name='Периодичность')
 	reward = models.CharField(max_length=100, verbose_name='Награда', **NULLABLE)
 	time_for_action = models.PositiveSmallIntegerField(verbose_name='Время на выполнение')

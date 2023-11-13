@@ -1,4 +1,5 @@
-from rest_framework import generics
+from rest_framework import generics, serializers
+from rest_framework.response import Response
 
 from habits.models import Habit
 from habits.paginators import HabitPaginator
@@ -17,6 +18,7 @@ class HabitListView(generics.ListAPIView):
 class PublicHabitListView(generics.ListAPIView):
 	serializer_class = HabitPublicListSerializer
 	pagination_class = HabitPaginator
+
 	def get_queryset(self):
 		return Habit.objects.filter(is_public=True)
 
@@ -34,4 +36,3 @@ class HabitReadUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
 	serializer_class = HabitSerializer
 	queryset = Habit.objects.all()
 	permission_classes = [IsOwner]
-
