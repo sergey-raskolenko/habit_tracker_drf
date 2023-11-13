@@ -18,7 +18,7 @@ class UserListView(ListAPIView):
 	serializer_class = UserSerializer
 
 
-class UserUpdateView(RetrieveUpdateDestroyAPIView):
+class UserReadUpdateDeleteView(RetrieveUpdateDestroyAPIView):
 	queryset = User.objects.all()
 	permission_classes = [IsCurrentUser]
 	serializer_class = UserSerializer
