@@ -44,6 +44,7 @@ INSTALLED_APPS = [
 	'rest_framework_simplejwt',
 	'drf_yasg',
 	'django_celery_beat',
+	'corsheaders',
 	'users',
 	'habits',
 
@@ -52,6 +53,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
 	'django.middleware.security.SecurityMiddleware',
 	'django.contrib.sessions.middleware.SessionMiddleware',
+	"corsheaders.middleware.CorsMiddleware",
 	'django.middleware.common.CommonMiddleware',
 	'django.middleware.csrf.CsrfViewMiddleware',
 	'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -170,3 +172,13 @@ CELERY_TIMEZONE = "Europe/Moscow"
 CELERY_TASK_TRACK_STARTED = True
 
 CELERY_TASK_TIME_LIMIT = 30 * 60
+
+CORS_ALLOWED_ORIGINS = [
+	'<http://localhost:8000>',
+]
+
+CSRF_TRUSTED_ORIGINS = [
+	"https://read-and-write.example.com",
+]
+
+CORS_ALLOW_ALL_ORIGINS = False
