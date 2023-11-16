@@ -43,6 +43,7 @@ INSTALLED_APPS = [
 	'rest_framework',
 	'rest_framework_simplejwt',
 	'drf_yasg',
+	'django_celery_beat',
 	'users',
 	'habits',
 
@@ -146,3 +147,26 @@ SIMPLE_JWT = {
 	'ACCESS_TOKEN_LIFETIME': timedelta(minutes=59),
 	'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
 }
+
+SWAGGER_SETTINGS = {
+	'SECURITY_DEFINITIONS': {
+		'basic': {
+			'type': 'basic'
+		},
+		'Bearer': {
+			'type': 'apiKey',
+			'name': 'Authorization',
+			'in': 'header'
+		}
+	}
+}
+
+CELERY_BROKER_URL = 'redis://localhost:6379'
+
+CELERY_RESULT_BACKEND = 'redis://localhost:6379'
+
+CELERY_TIMEZONE = "Europe/Moscow"
+
+CELERY_TASK_TRACK_STARTED = True
+
+CELERY_TASK_TIME_LIMIT = 30 * 60
