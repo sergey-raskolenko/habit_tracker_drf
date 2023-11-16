@@ -30,6 +30,11 @@ class HabitSerializer(serializers.ModelSerializer):
 			raise serializers.ValidationError(
 				"Одновременный выбор связанной привычки и указание вознаграждения исключен."
 			)
+		if instance.is_enjoyable and \
+			(validated_data.get("linked_habit") is not None or validated_data.get('reward') is not None):
+			raise serializers.ValidationError(
+				"У приятной привычки не может быть вознаграждения или связанной привычки."
+			)
 		return super().update(instance, validated_data)
 
 	class Meta:
