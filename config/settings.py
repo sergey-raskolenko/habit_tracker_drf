@@ -116,9 +116,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru-ru'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Moscow'
 
 USE_I18N = True
 
@@ -163,9 +163,9 @@ SWAGGER_SETTINGS = {
 	}
 }
 
-CELERY_BROKER_URL = 'redis://localhost:6379'
+CELERY_BROKER_URL = 'redis://localhost:6379/0'
 
-CELERY_RESULT_BACKEND = 'redis://localhost:6379'
+CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
 
 CELERY_TIMEZONE = "Europe/Moscow"
 
@@ -173,12 +173,15 @@ CELERY_TASK_TRACK_STARTED = True
 
 CELERY_TASK_TIME_LIMIT = 30 * 60
 
+BROKER_CONNECTION_RETRY_ON_STARTUP = True
+
 CORS_ALLOWED_ORIGINS = [
-	'<http://localhost:8000>',
+	"https://read-only.example.com",
+	"https://read-and-write.example.com",
 ]
 
 CSRF_TRUSTED_ORIGINS = [
 	"https://read-and-write.example.com",
 ]
 
-CORS_ALLOW_ALL_ORIGINS = False
+TG_BOT_TOKEN = os.getenv('TG_BOT_TOKEN')
