@@ -7,6 +7,11 @@ from habits.models import Habit
 
 @shared_task
 def send_habit_notification(pk: int):
+	"""
+	Периодическая задача для отправки пользователю сообщения в телеграм с напоминанием о привычке.
+	:param pk: первичный ключ, для получения привычки.
+	:return: None
+	"""
 	obj = Habit.objects.get(pk=pk)
 	if obj.linked_habit:
 		message = f'Напоминание о привычке!' '\n' f'{obj}' '\n' f'А после {obj.linked_habit.__str__()}'

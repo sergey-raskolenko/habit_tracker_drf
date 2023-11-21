@@ -5,6 +5,7 @@ from users.models import NULLABLE
 
 
 class Habit(models.Model):
+	"""Модель для описания атомарной привычки"""
 	PERIODICITY_CHOICES = (
 		(1, 'Раз в 1 день'),
 		(2, 'Раз в 2 дня'),

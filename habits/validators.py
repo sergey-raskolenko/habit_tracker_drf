@@ -2,6 +2,7 @@ from rest_framework import serializers
 
 
 class TimeForActionValidator:
+	"""Валидатор на основе класса для проверки времени выполнения"""
 	def __init__(self, field):
 		self.field = field
 
