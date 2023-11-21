@@ -33,6 +33,7 @@ class UserManager(BaseUserManager):
 
 
 class User(AbstractUser):
+	"""Модель для описания пользователя"""
 	objects = UserManager()
 
 	username = None
