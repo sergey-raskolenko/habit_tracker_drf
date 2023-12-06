@@ -53,27 +53,6 @@ git clone <URL репозитория>
 ### Настройка окружения. 
 В директории проекта необходимо создать файл `.env` по примеру файла `.env.sample`
 
-
-### Установка зависимостей
-```bash
-pip install -r requirements.txt
-```
-### Установка и настройка Redis
-Установка
-```bash
-sudo apt-get install redis-server
-```
-Запуск
-```bash
-sudo service redis-server start
-```
-Для проверки работы, ответ: **PONG**
-```bash
-redis-cli ping
-```
-### Настройка окружения. 
-В директории проекта необходимо создать файл `.env` по примеру файла `.env.sample`
-
 ### Команды ля запуска приложения с помощью Docker:
 ```bash
 docker-compose up --build
