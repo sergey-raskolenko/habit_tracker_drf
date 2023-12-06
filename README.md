@@ -48,6 +48,12 @@
 ```bash
 git clone <URL репозитория>
 ```
+### Создать телеграм-бота, используя телеграм-бот @BotFather
+
+### Настройка окружения. 
+В директории проекта необходимо создать файл `.env` по примеру файла `.env.sample`
+
+
 ### Установка зависимостей
 ```bash
 pip install -r requirements.txt
@@ -68,21 +74,7 @@ redis-cli ping
 ### Настройка окружения. 
 В директории проекта необходимо создать файл `.env` по примеру файла `.env.sample`
 
-### Применение миграций
+### Команды ля запуска приложения с помощью Docker:
 ```bash
-python manage.py migrate
-```
-### Запуск celery в новом окне терминала
-```bash
-python.exe -m celery -A config worker -l INFO -P eventlet
-```
-### Запуск celery-beat в новом окне терминала
-
-```bash
-python.exe -m celery -A config beat -l info -S django   
-```
-### Запуск сервера Django в новом окне терминала
-Перед запуском сервера необходимо активировать виртуальное окружение.
-```bash
-python manage.py runserver
+docker-compose up --build
 ```
